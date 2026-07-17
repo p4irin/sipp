@@ -29,7 +29,7 @@ LABEL maintainer="https://github.com/p4irin"
 LABEL author = "https://github.com/p4irin"
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y && apt-get install -y tzdata openssl libpcap0.8 libsctp1 \
-libncurses5 && apt-get autoremove -y && apt-get clean -y
+libncurses6 && apt-get autoremove -y && apt-get clean -y
 ENV TZ="Europe/Amsterdam"
 WORKDIR /
 COPY --from=builder /usr/local/bin/sipp /usr/local/bin/
