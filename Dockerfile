@@ -13,7 +13,7 @@ ADD https://github.com/SIPp/sipp/releases/download/v${sipp_version}/sipp-${sipp_
 RUN tar -xzf /sipp-${sipp_version}.tar.gz
 
 WORKDIR /sipp-${sipp_version}
-RUN cmake . -DUSE_PCAP=1 -DUSE_GSL=0 -DUSE_SSL=1 -DUSE_SCTP=1
+RUN cmake . -DUSE_PCAP=1 -DUSE_GSL=1 -DUSE_SSL=1 -DUSE_SCTP=1
 RUN make install
 
 WORKDIR /
