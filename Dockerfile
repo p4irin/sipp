@@ -6,7 +6,7 @@ FROM ubuntu:${ubuntu_version} as builder
 ARG sipp_version
 
 RUN apt-get update && apt-get install -y build-essential cmake apt-utils \
-libssl-dev libpcap-dev libsctp-dev libncurses6-dev libgsl-dev && \
+libssl-dev libpcap-dev libsctp-dev libncurses5-dev libgsl-dev && \
 apt-get autoremove -y && apt-get clean -y
 
 ADD https://github.com/SIPp/sipp/releases/download/v${sipp_version}/sipp-${sipp_version}.tar.gz /
