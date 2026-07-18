@@ -6,7 +6,7 @@ FROM ubuntu:${ubuntu_version} as builder
 ARG sipp_version
 
 RUN apt-get update && apt-get install -y build-essential cmake apt-utils \
-libssl-dev libpcap-dev libgsl-dev libsctp-dev libncurses6-dev && \
+libssl-dev libpcap-dev libgsl-dev libsctp-dev libncurses5-dev && \
 apt-get autoremove -y && apt-get clean -y
 
 ADD https://github.com/SIPp/sipp/releases/download/v${sipp_version}/sipp-${sipp_version}.tar.gz /
@@ -29,7 +29,7 @@ LABEL maintainer="https://github.com/p4irin"
 LABEL author = "https://github.com/p4irin"
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y && apt-get install -y tzdata openssl libpcap0.8 libsctp1 \
-libncurses6 && apt-get autoremove -y && apt-get clean -y
+&& apt-get autoremove -y && apt-get clean -y
 ENV TZ="Europe/Amsterdam"
 WORKDIR /
 COPY --from=builder /usr/local/bin/sipp /usr/local/bin/
